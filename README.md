@@ -75,6 +75,44 @@ test:
 
 
 
+Step 4: Create Dockerfile
+
+Create a Dockerfile in the root of your repository with the following content:
+
+Dockerfile
+
+FROM nginx:latest
+
+COPY index.html /usr/share/nginx/html/index.html
+
+EXPOSE 80
+
+
+
+
+
+Step 5: Add index.html
+
+Create an index.html file in the root of your repository with the content you want to display on your web page.
+Step 6: Commit and Push Changes
+
+bash
+
+
+
+
+git add .
+git commit -m "Initial commit with CI/CD setup"
+git push origin main
+
+How It Works
+
+    Build Stage: Builds the Docker image using the specified Dockerfile.
+    Deploy Stage: Deploys the Docker container, stopping and removing any previous instance.
+    Test Stage: Tests if the server is up and running by making an HTTP request to the deployed application.
+
+
+
 
 
 
