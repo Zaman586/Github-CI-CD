@@ -1,41 +1,60 @@
-# Gitlab-CI-CD
-Fundamental CI/CD Project
-Gitlab CI/CD
-Installated all the required Software
-Docker,
-Nginx,
-Git,
-Gitlab runner ( install from official documentation of Gitlab),
-Create repository on Gitlab,
-Clone your repository,
-Git clone “ Paste your repos link ”,
-Enter your e-mail of GItlab “”,
-Password of Gitlab””,
-Register your gitlab runner from setting (CI/CD) your epository
-Use https:// instead http
-Lock to your current project
+# Fundamental CI/CD Project
 
+This project demonstrates the basic setup and use of GitLab CI/CD to build, deploy, and test a Dockerized web application using Nginx.
 
+## Prerequisites
 
-Create file of .gitlab-ci.yml
+Ensure the following software is installed:
+- Docker
+- Nginx
+- Git
+- GitLab Runner (follow the official GitLab documentation for installation)
+
+## Setup
+
+### Step 1: Create a GitLab Repository
+
+1. Create a repository on GitLab.
+2. Clone your repository:
+
+    ```bash
+    git clone <your-repository-link>
+    ```
+
+3. Enter your GitLab credentials when prompted.
+
+### Step 2: Register GitLab Runner
+
+1. Navigate to your repository's **Settings** -> **CI/CD** -> **Runners**.
+2. Register your GitLab runner:
+
+    ```bash
+    gitlab-runner register
+    ```
+
+### Step 3: Create `.gitlab-ci.yml`
+
+Create a `.gitlab-ci.yml` file in the root of your repository with the following content:
+
+```yaml
 stages:
-  - build     ( define your stages)
+  - build
   - deploy
   - test
 
 variables:
-  DOCKER_IMAGE: 'medi' (name of your docker image)
+  DOCKER_IMAGE: 'medi'
 
 build:
   stage: build
   tags:
-    - pclass-zaman1 (name of your register runner)
+    - pclass-zaman1
   script:
     - echo "Building Docker image..."
-    - docker build -t $DOCKER_IMAGE .( $ variable)
+    - docker build -t $DOCKER_IMAGE .
 
 deploy:
-  stage: deploy      (call the stage)
+  stage: deploy
   tags:
     - pclass-zaman1
   script:
@@ -51,27 +70,8 @@ test:
   script:
     - echo "Testing if the server is up..."
     - apt-get update && apt-get install -y curl
-    - sleep 10        
-    - '[[ $(curl -s -o /dev/null -w "%{http_code}" http://103.151.111.182:8001) == "200" ]]'
-
-
-
-
-
-
-Dockerfile
-
-
-
-
-
-FROM nginx:latest
-
-COPY index.html /usr/share/nginx/html/index.html
-
-EXPOSE 80
-   
-
+    - sleep 10
+    - '[[ $(curl -s -o /dev/null -w "%{http_code}" http://103.151.111.182:8001) ==
 
 
 
