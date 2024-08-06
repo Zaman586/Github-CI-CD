@@ -1,16 +1,16 @@
 # Gitlab-CI-CD
 Fundamental CI/CD Project
 Gitlab CI/CD
-Installation 
-Docker
-Nginx
-Git
-Gitlab runner ( install from official documentation of Gitlab)
-Create repository on Gitlab
-Clone your repository
-Git clone “ Paste your repos link ”
-Enter your e-mail of GItlab “”
-Password of Gitlab””
+Installated all the required Software
+Docker,
+Nginx,
+Git,
+Gitlab runner ( install from official documentation of Gitlab),
+Create repository on Gitlab,
+Clone your repository,
+Git clone “ Paste your repos link ”,
+Enter your e-mail of GItlab “”,
+Password of Gitlab””,
 Register your gitlab runner from setting (CI/CD) your epository
 Use https:// instead http
 Lock to your current project
