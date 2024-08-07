@@ -1,67 +1,42 @@
 name: CI/CD Pipeline
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v1
-
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        uses: actions/checkout@v3
 
       - name: Build Docker image
         run: |
           echo "Building Docker image..."
-          docker build -t medi .
+          docker build -t zaman .
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v1
-
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
       - name: Deploy Docker container
         run: |
           echo "Deploying Docker container..."
-          docker stop pclass-zaman1 || true
-          docker rm pclass-zaman1 || true
-          docker run -d --name pclass-zaman1 -p 8080:8080 medi
+          docker stop zaman || true
+          docker rm zaman || true
+          docker run -d --name zaman -p 81:81 zaman
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: deploy
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install curl
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl
-
       - name: Test if the server is up
         run: |
           echo "Testing if the server is up..."
-          sleep 10
-          if [ $(curl -s -o /dev/null -w "%{http_code}" http://103.151.111.182:8080) -ne 200 ]; then
-            echo "Server is not up"
-            exit 1
+          sleep 180
+          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://103.151.111.186:81)
+          if [ "$STATUS_CODE" -eq 200 ]; then
+          echo "Server is up and running."
           else
-            echo "Server is up"
+          echo "Server is not up, status code: $STATUS_CODE"
+          exit 1
           fi
