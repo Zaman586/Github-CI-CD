@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaman Anwar - Curriculum Vitae</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+        }
+        .cv-section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .section-content {
+            margin-left: 20px;
+        }
+        .section-item {
+            margin-bottom: 10px;
+        }
+        .section-item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .section-item li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-section">
+        <div class="section-title">Curriculum Vitae</div>
+        <div class="section-content">
+            <div class="section-item">
+                <strong>Personal Information:</strong><br>
+                Address: Gujrat, Pakistan<br>
+                Phone: +923236164830<br>
+                Email: zamananwar856@gmail.com<br>
+                LinkedIn: <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit">LinkedIn Profile</a><br>
+                GitHub: <a href="https://github.com/Zaman586/zaman.anwar.git">GitHub Profile</a><br>
+            </div>
+            <div class="section-item">
+                <strong>Professional Summary:</strong><br>
+                As an Associate DevOps Engineer, I am dedicated to bridging the gap between development and operations teams to streamline software deployment processes, enhance system reliability, and foster a culture of continuous integration and delivery (CI/CD). With a solid foundation in software development and system administration, I bring a proactive approach to automating infrastructure, optimizing workflows, and implementing best practices in cloud environments.
+            </div>
+            <div class="section-item">
+                <strong>Education:</strong><br>
+                BSCS (Bachelor of Science in Computer Science)<br>
+                University: University of Gujrat<br>
+                Graduation Year: [Year of Graduation]
+            </div>
+            <div class="section-item">
+                <strong>Work Experience:</strong><br>
+                <ul>
+                    <li>
+                        Job Title: Associate DevOps Engineer<br>
+                        Company: Aden<br>
+                        Location: Lahore, Pakistan<br>
+                        Dates: [Start Date] - [End Date or Present]<br>
+                        Responsibilities and Achievements:
+                        <ul>
+                            <li>Streamlined software deployment processes by implementing CI/CD pipelines.</li>
+                            <li>Enhanced system reliability through proactive monitoring and infrastructure automation.</li>
+                            <li>Collaborated with development teams to optimize workflows and ensure scalable solutions.</li>
+                            <li>Implemented best practices for cloud infrastructure management and security.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="section-item">
+                <strong>Technical Skills:</strong><br>
+                Version Control Systems: Git, SVN<br>
+                Containerization and Container Orchestration: Docker, Kubernetes<br>
+                Monitoring and Logging: Prometheus, Grafana, ELK Stack
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+:
