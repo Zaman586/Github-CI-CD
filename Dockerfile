@@ -1,11 +1,8 @@
-# Use the official Nginx base image
-FROM nginx:latest
+FROM nginx:alpine
 
-# Copy the index.html file to the default Nginx HTML directory
-COPY index.html /usr/share/nginx/html/index.html
+COPY index1.html /usr/share/nginx/html/index1.html
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port 8080 to the outside world
-EXPOSE 8080
+EXPOSE 81
 
-# Update Nginx configuration to listen on port 8080
-RUN sed -i 's/listen 80;/listen 8080;/' /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]
