@@ -42,7 +42,7 @@ jobs:
         run: |
           docker stop my-nginx-html-server || true
           docker rm my-nginx-html-server || true
-          docker run -d --name my-nginx-html-server -p 8080:81 ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_TAG }}
+          docker run -d --name my-nginx-html-server -p 8080:80 ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_TAG }}
           docker ps
           docker logs my-nginx-html-server
 
