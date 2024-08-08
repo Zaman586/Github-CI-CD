@@ -54,9 +54,7 @@ jobs:
     steps:
       - name: Test if the server is up
         run: |
-        sleep 300
-            
-        curl --connect-timeout 60 --max-time 300 http://103.151.111.186:8080
+        sleep 180 
 
           curl -v http://103.151.111.186:8080 || true
           curl -s -o /dev/null -w "%{http_code}" http://103.151.111.186:8080
