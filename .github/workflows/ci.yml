@@ -54,7 +54,7 @@ jobs:
     steps:
       - name: Test if the server is up
         run: |
-        sleep 180 
+        sleep 300 
 
           curl -v http://103.151.111.186:8080 || true
           curl -s -o /dev/null -w "%{http_code}" http://103.151.111.186:8080
