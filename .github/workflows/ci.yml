@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set Docker client timeout
       run: |
@@ -33,7 +33,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
@@ -54,7 +54,6 @@ jobs:
     steps:
       - name: Test if the server is up
         run: |
-        sleep 120 
-
+          sleep 120 
           curl -v http://103.151.111.186:8080 || true
           curl -s -o /dev/null -w "%{http_code}" http://103.151.111.186:8080
